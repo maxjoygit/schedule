@@ -1,25 +1,9 @@
-# .cirrus.yml
+container:
+  image: node:latest
 
-task:
-  build_docker:
-    docker:
-      image: node:14  # Docker image for Node.js
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Run tests
-          command: npm test
-
-  build_vm:
-    vm: true  # VM environment
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Run tests
-          command: npm test
+check_task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat yarn.lock
+    populate_script: yarn install
+  test_script: yarn test
