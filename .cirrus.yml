@@ -6,11 +6,6 @@ check_task:
     folder: node_modules
     fingerprint_script: cat package-lock.json
     populate_script: npm install
-  test_script: npm start
-
-task1:
-  name: "Scheduled Task 1"
   schedule:
-    - cron: "* * * * *"  # Runs every day at midnight UTC
-  script:
-    - echo "This is Task 1 running every day at midnight"
+    - cron: "* * * * *"
+  test_script: npm start
