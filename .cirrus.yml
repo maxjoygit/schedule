@@ -1,0 +1,25 @@
+# .cirrus.yml
+
+task:
+  build_docker:
+    docker:
+      image: node:14  # Docker image for Node.js
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Run tests
+          command: npm test
+
+  build_vm:
+    vm: true  # VM environment
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Run tests
+          command: npm test
