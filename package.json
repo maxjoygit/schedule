@@ -1,5 +1,5 @@
 {
-  "name": "cischedule",
+  "name": "schedule",
   "version": "1.0.0",
   "main": "src/app.js",
   "type": "module",
